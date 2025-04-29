@@ -28,7 +28,7 @@ To get started with NextCMS, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/nextcms.git
+   git clone https://github.com/devhau/nextcms.git
    ```
 2. Install dependencies:
    ```bash
