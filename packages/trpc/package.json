@@ -1,0 +1,23 @@
+{
+  "name": "@repo/trpc",
+  "private": true,
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "check-types": "tsc --noEmit"
+  },
+  "exports": {
+    "./*": [
+      "./src/*"
+    ],
+    ".": [
+      "./src/index.ts"
+    ]
+  },
+  "dependencies": {
+    "@trpc/client": "^11.1.1",
+    "@trpc/next": "^11.1.1",
+    "@trpc/server": "^11.1.1",
+    "@trpc/react-query": "^11.1.1"
+  },
+  "devDependencies": {}
+}

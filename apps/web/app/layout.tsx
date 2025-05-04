@@ -6,6 +6,7 @@ import { ThemeProvider } from "@repo/ui/components/theme-provider";
 import "@repo/ui/globals.css";
 import "./globals.css";
 import { getLocale } from "next-intl/server";
+import { TRPCReactProvider } from "~/trpc/react";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -30,7 +31,9 @@ export default async function RootLayout({
     <html lang={locale} className="light" style={{ colorScheme: "light" }}>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <ThemeProvider>
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <NextIntlClientProvider>
+            <TRPCReactProvider>{children}</TRPCReactProvider>
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -18,6 +18,6 @@
     "next.config.js",
     ".next/types/**/*.ts",
     "postcss.config.mjs"
-  ],
+, "../../packages/trpc/src/context.ts", "../../packages/trpc/src/root.ts"  ],
   "exclude": ["node_modules"]
 }
