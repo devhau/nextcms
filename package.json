@@ -1,0 +1,28 @@
+{
+  "name": "next-cms-turbo",
+  "version": "0.0.1",
+  "description": "A monorepo for Next.js CMS with TurboRepo",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "start": "turbo run start",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "check-types": "turbo run check-types"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "turbo": "^2.5.2",
+    "typescript": "5.8.2"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "bun@1.2.9",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "configs/*"
+  ]
+}
