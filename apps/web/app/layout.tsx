@@ -27,7 +27,7 @@ export default async function RootLayout({
 }>) {
   const locale = await getLocale();
   return (
-    <html lang={locale} className="light" style={{ "color-scheme": "light" }}>
+    <html lang={locale} className="light" style={{ colorScheme: "light" }}>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <ThemeProvider>
           <NextIntlClientProvider>{children}</NextIntlClientProvider>
