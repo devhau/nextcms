@@ -19,9 +19,12 @@
     "@trpc/react-query": "^11.1.1",
     "drizzle-orm": "^0.43.1",
     "pg": "^8.15.6",
-    "zod": "^3.24.3"
+    "zod": "^3.24.3",
+    "js-cookie": "^3.0.5",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
-    "@types/pg": "^8.11.14"
+    "@types/pg": "^8.11.14",
+    "@types/js-cookie": "^3.0.2"
   }
 }

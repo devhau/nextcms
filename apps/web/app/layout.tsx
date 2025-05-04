@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "@repo/ui/globals.css";
-import "./globals.css";
+import { NextIntlClientProvider } from "next-intl";
 import { ThemeProvider } from "@repo/ui/components/theme-provider";
 
+import "@repo/ui/globals.css";
+import "./globals.css";
+import { getLocale } from "next-intl/server";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -18,15 +20,18 @@ export const metadata: Metadata = {
   description: "A Next.js CMS",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
   return (
-    <html lang="en">
+    <html lang={locale} className="light" style={{ "color-scheme": "light" }}>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
