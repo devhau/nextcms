@@ -1,0 +1,27 @@
+{
+  "name": "common",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "check-types": "tsc --noEmit"
+  },
+  "exports": {
+    "./*": [
+      "./src/*"
+    ]
+  },
+  "dependencies": {
+    "next-intl": "^4.1.0",
+    "@trpc/client": "^11.1.1",
+    "@trpc/next": "^11.1.1",
+    "@trpc/server": "^11.1.1",
+    "@trpc/react-query": "^11.1.1",
+    "drizzle-orm": "^0.43.1",
+    "pg": "^8.15.6",
+    "zod": "^3.24.3"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.11.14"
+  }
+}
