@@ -6,9 +6,10 @@
     "check-types": "tsc --noEmit"
   },
   "exports": {
-    "./*": [
-      "./src/*"
-    ]
+    "./*": "./src/*",
+    "./trpc": "./src/trpc/index.ts",
+    "./db": "./src/db/index.ts",
+    "./auth": "./src/auth/index.ts"
   },
   "dependencies": {
     "next-intl": "^4.1.0",
@@ -18,7 +19,12 @@
     "js-cookie": "^3.0.5",
     "zustand": "^5.0.3",
     "superjson": "^2.2.2",
-    "next-auth": "^4.24.11"
+    "next-auth": "^4.24.11",
+    "@auth/drizzle-adapter": "^1.9.0",
+    "@trpc/client": "^11.1.1",
+    "@trpc/next": "^11.1.1",
+    "@trpc/server": "^11.1.1",
+    "@trpc/react-query": "^11.1.1"
   },
   "devDependencies": {
     "@types/pg": "^8.11.14",
