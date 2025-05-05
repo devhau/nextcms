@@ -7,6 +7,8 @@ import "@repo/ui/globals.css";
 import "./globals.css";
 import { getLocale } from "next-intl/server";
 import { TRPCReactProvider } from "~/trpc/react";
+import { console } from "inspector";
+import { AuthProvider } from "@repo/common/auth";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,7 +28,6 @@ export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-  session: any;
 }>) {
   const locale = await getLocale();
   return (
@@ -34,7 +35,9 @@ export default async function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <ThemeProvider>
           <NextIntlClientProvider>
+            <AuthProvider>
               <TRPCReactProvider>{children}</TRPCReactProvider>
+            </AuthProvider>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

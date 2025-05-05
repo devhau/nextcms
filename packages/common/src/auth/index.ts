@@ -2,7 +2,7 @@ import type { DefaultSession, NextAuthOptions } from "next-auth";
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import CredentialsProvider from "next-auth/providers/credentials";
 import NextAuth from "next-auth";
-
+import AuthProvider from "./auth-provider";
 import { db, SchemaTable } from "../db";
 
 export type { Session } from "next-auth";
@@ -38,6 +38,7 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
+  session: { strategy: "jwt" },
   callbacks: {
     session: ({ session, user }) => {
       console.log({ session, user });
@@ -59,4 +60,7 @@ export const authOptions: NextAuthOptions = {
     },
   },
 };
+
 export default NextAuth(authOptions);
+
+export { AuthProvider };
