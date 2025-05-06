@@ -3,7 +3,7 @@ import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import CredentialsProvider from "next-auth/providers/credentials";
 import NextAuth from "next-auth";
 import AuthProvider from "./auth-provider";
-import { db, SchemaTable } from "../db";
+import { db } from "../db";
 
 export type { Session } from "next-auth";
 
@@ -15,9 +15,8 @@ declare module "next-auth" {
   }
 }
 
-
 export const authOptions: NextAuthOptions = {
-  adapter: DrizzleAdapter(db as any, SchemaTable),
+  adapter: DrizzleAdapter(db as any),
   secret: process.env.NEXTAUTH_SECRET ?? "abcdef",
   providers: [
     CredentialsProvider({

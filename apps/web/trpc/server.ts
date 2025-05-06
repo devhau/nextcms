@@ -5,8 +5,13 @@ import { createCaller, createTRPCContext } from "@repo/common/trpc";
  * This wraps the `createTRPCContext` helper and provides the required context for the tRPC API when
  * handling a tRPC call from a React Server Component.
  */
-const createContext = cache(async (_opts: { req: any; res: any }) => {
+const createContext = cache(async (_opts: { req: import("http").IncomingMessage; res: import("http").ServerResponse }) => {
   return createTRPCContext(_opts);
 });
 
-export const api = createCaller(createContext);
+export const api = createCaller(() =>
+  createContext({
+    req: {} as import("http").IncomingMessage,
+    res: {} as import("http").ServerResponse,
+  })
+);

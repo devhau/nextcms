@@ -7,8 +7,8 @@ import "@repo/ui/globals.css";
 import "./globals.css";
 import { getLocale } from "next-intl/server";
 import { TRPCReactProvider } from "~/trpc/react";
-import { console } from "inspector";
 import { AuthProvider } from "@repo/common/auth";
+import Footer from "~/components/layout/Footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -36,7 +36,10 @@ export default async function RootLayout({
         <ThemeProvider>
           <NextIntlClientProvider>
             <AuthProvider>
-              <TRPCReactProvider>{children}</TRPCReactProvider>
+              <TRPCReactProvider>
+                <main>{children}</main>
+                <Footer />
+              </TRPCReactProvider>
             </AuthProvider>
           </NextIntlClientProvider>
         </ThemeProvider>
